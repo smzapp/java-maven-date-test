@@ -7,7 +7,7 @@ public class DateEntry  implements  AcceptDateImpl{
 
     private DateTime dateTime;
 
-    private String userInput;
+    private final String userInput;
 
     public DateEntry(String input){
         this.userInput = input;
@@ -15,10 +15,10 @@ public class DateEntry  implements  AcceptDateImpl{
 
     public void validateDate() throws Exception {
         boolean  isDate =  GenericValidator.isDate(userInput, "yyyy-MM-dd", true);
-        if (!isDate) {
-            throw new Exception("The input date is invalid!");
-        } else {
+        if (isDate) {
             this.dateTime = new DateTime(userInput);
+        } else {
+            throw new Exception("The input date is invalid!");
         }
     }
 
