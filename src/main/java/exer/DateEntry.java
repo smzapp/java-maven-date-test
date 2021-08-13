@@ -24,25 +24,27 @@ public class DateEntry  implements  AcceptDateImpl{
 
     @Override
     public boolean isDateStartMonth() {
-        return this.dateTime.getMonthOfYear() == 1;
+        int val = this.dateTime.dayOfMonth().getMinimumValue();
+        return this.dateTime.getDayOfMonth() == val ;
     }
 
     @Override
     public boolean isDateEndMonth() {
-        return this.dateTime.getMonthOfYear() == 12;
+         int val = this.dateTime.dayOfMonth().getMaximumValue();
+         return this.dateTime.getDayOfMonth() == val ;
     }
 
     @Override
     // January to December
     public boolean isMonthFirstHalf() {
-        int monthValue = this.dateTime.getMonthOfYear();
-        return (monthValue <= 6);
+        int val = this.dateTime.dayOfMonth().getMaximumValue();
+        return ((val / 2) >= this.dateTime.getDayOfMonth()) ;
     }
 
     @Override
     // July to December
     public boolean isMonthLastHalf() {
-        int monthValue = this.dateTime.getMonthOfYear();
-        return (monthValue > 6);
+        int val = this.dateTime.dayOfMonth().getMaximumValue();
+        return ((val / 2) < this.dateTime.getDayOfMonth()) ;
     }
 }

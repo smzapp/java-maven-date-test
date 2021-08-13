@@ -6,7 +6,7 @@ package exer;
 public class MainApp{
 
     // Enter date String format yyyy/MM/dd;
-    private static final String userInput = "1989-07-27";
+    private static final String userInput = "1989-07-31";
 
     private static DateEntry dateEntry;
 
